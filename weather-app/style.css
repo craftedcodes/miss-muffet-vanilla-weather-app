@@ -47,3 +47,9 @@ main li {
 .c-f {
   font-size: 30px;
 }
+.reference {
+  color: #f8f9fa;
+  font-size: 5px;
+  text-align: center;
+  text-shadow: none;
+}

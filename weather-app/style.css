@@ -1,0 +1,46 @@
+body {
+  width: max400px;
+  font-family: "Julius Sans One", sans-serif;
+  text-shadow: 3px 3px 4px #253541;
+}
+
+header {
+  max-width: max200px;
+  display: block;
+  padding: 0px;
+}
+main {
+  color: #f8f9fa;
+}
+input {
+  display: inline-block;
+}
+button {
+  display: inline-block;
+  vertical-align: middle;
+  align-items: flex-start;
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+h1 {
+  font-size: 60px;
+  display: inline-block;
+}
+h2 {
+  font-size: 120px;
+  display: inline-block;
+}
+main li {
+  font-size: 15px;
+}
+
+.card {
+  width: max200px;
+  background-color: #537895;
+  border: none;
+  margin-top: 10px;
+}

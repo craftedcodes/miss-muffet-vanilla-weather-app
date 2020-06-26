@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather app</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card col-7 flexi">
+        <div class="card-body">
+          <header>
+            <div class="row">
+              <div class="col-8 flexi">
+                <input
+                  class="form-control mr-sm-2 text-right"
+                  type="search"
+                  placeholder="🔍"
+                  aria-label="Search"
+                  id="city-input"
+                />
+              </div>
+              <div class="col-2 flexi">
+              <button type="button" class="btn btn-light" id="search-form">
+                Search
+              </button>
+              </div>
+            <div class="col-2 flexi">
+              <button type="button" class="btn btn-light" id="geolocation">
+                🧭
+              </button>
+            </div>
+            </div>
+          </header>
+          <main>
+              <div class="row">
+            <h1 class="col-5">
+              Berlin
+            </h1>
+            <div class="col-4 card">
+              <li>
+                <span>Thursday</span>
+                <span>17:32</span>
+              </li>
+              <li>
+                slightly clouded
+              </li>
+            </div>
+            </ul>
+            </div>
+            <div class="row">
+            <h2 class="col-4">
+              28
+            </h2>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

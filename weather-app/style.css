@@ -47,6 +47,7 @@ img {
   border-radius: 180px;
   box-shadow: 3px 3px 4px #253541;
 }
+
 .card {
   width: max200px;
   border-radius: 10px;
@@ -54,9 +55,17 @@ img {
   margin-top: 10px;
   background-color: transparent;
 }
+
+.coded {
+  color: #f8f9fa;
+  font-size: 20px;
+  text-align: center;
+}
+
 .crd {
   background-image: linear-gradient(to bottom, #09203f 0%, #537895 100%);
 }
+
 .c-f {
   font-size: 30px;
 }
@@ -64,11 +73,17 @@ img {
 .glass {
   text-shadow: 3px 3px 4px;
 }
+
 .reference {
   color: #f8f9fa;
   font-size: 5px;
   text-align: center;
   text-shadow: none;
+  margin-top: 10px;
+}
+
+.tmp {
+  cursor: pointer;
 }
 
 .wthr {

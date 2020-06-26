@@ -45,9 +45,13 @@ main li {
 
 .card {
   width: max200px;
-  background-color: #537895;
+  border-radius: 40px;
   border: none;
   margin-top: 10px;
+  background-color: transparent;
+}
+.crd {
+  background-image: linear-gradient(to bottom, #09203f 0%, #537895 100%);
 }
 .c-f {
   font-size: 30px;

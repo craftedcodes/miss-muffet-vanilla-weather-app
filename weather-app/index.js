@@ -37,7 +37,7 @@ function showWeather(response) {
     response.data.weather[0].description;
   document.querySelector("#currenthumidity").innerHTML = `${Math.round(
     response.data.main.humidity
-  )} %`;
+  )}%`;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );

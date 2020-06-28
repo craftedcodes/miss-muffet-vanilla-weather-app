@@ -34,14 +34,12 @@ function showWeather(response) {
     response.data.main.temp
   );
   document.querySelector("#description").innerHTML =
-    response.data.main.weather.description;
-  document.querySelector("#currenthumidity").innerHTML = Math.round(
+    response.data.weather[0].description;
+  document.querySelector("#currenthumidity").innerHTML = `${Math.round(
     response.data.main.humidity
-  );
-  document.querySelector("#winddirection").innerHTML =
-    response.wind.direction.code;
+  )}%`;
   document.querySelector("#wind").innerHTML = Math.round(
-    response.wind.speed.unit
+    response.data.wind.speed
   );
 }
 

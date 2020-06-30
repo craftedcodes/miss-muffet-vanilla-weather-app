@@ -41,9 +41,6 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-}
-
-function showIcon() {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",

@@ -43,7 +43,7 @@ function showWeather(response) {
   );
   let iconElement = (document.querySelector(
     "#icon"
-  ).src = `https://openweathermap.org/img/wn/$%7Bresponse.data.weather%5B0%5D.icon%7D@2x.png`);
+  ).src = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 ///API///

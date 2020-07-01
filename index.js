@@ -41,6 +41,12 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#current-weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 ///API///
@@ -74,3 +80,28 @@ function getCurrentPosition() {
 let button = document.querySelector("#geolocation");
 button.addEventListener("click", getCurrentPosition);
 searchCity("Berlin");
+
+///Celsius Fahrenheit///
+
+function showCelsius(response) {
+  document.querySelector("#celsius-link").classList.add("tmp");
+  document.querySelector("#fahrenheit-link").classList.remove("tmp");
+  let currentTemp = Math.round(response.data.main.temp);
+  document.querySelector("#temperature").innerHTML = `${currentTemp}`;
+}
+
+function getFahrenheit(event) {
+  event.preventDefault();
+
+  let apiKey = "d3565a1a83ca66a70607e27406dc0152";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(showFahrenheit);
+}
+
+function showFahrenheit(response) {
+  document.querySelector("#fahrenheit-link").classList.add("tmp");
+  document.querySelector("#celsius-link").classList.remove("tmp");
+  let currentTemp = Math.round(response.data.main.temp);
+  document.querySelector("#temperature").innerHTML = `${currentTemp}`;
+}

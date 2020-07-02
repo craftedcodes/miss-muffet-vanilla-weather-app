@@ -29,9 +29,10 @@ time.innerHTML = `${hours}:${minutes}`;
 
 ///weather current location///
 function showWeather(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
+    celsiusTemperature
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
@@ -82,26 +83,22 @@ button.addEventListener("click", getCurrentPosition);
 searchCity("Berlin");
 
 ///Celsius Fahrenheit///
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+let celsiusTemperature = null;
 
-function showCelsius(response) {
-  document.querySelector("#celsius-link").classList.add("tmp");
-  document.querySelector("#fahrenheit-link").classList.remove("tmp");
-  let currentTemp = Math.round(response.data.main.temp);
-  document.querySelector("#temperature").innerHTML = `${currentTemp}`;
-}
-
-function getFahrenheit(event) {
+function showFahrenheitTemperature(event) {
   event.preventDefault();
-
-  let apiKey = "d3565a1a83ca66a70607e27406dc0152";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
-  axios.get(apiUrl).then(showFahrenheit);
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-function showFahrenheit(response) {
-  document.querySelector("#fahrenheit-link").classList.add("tmp");
-  document.querySelector("#celsius-link").classList.remove("tmp");
-  let currentTemp = Math.round(response.data.main.temp);
-  document.querySelector("#temperature").innerHTML = `${currentTemp}`;
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }

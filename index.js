@@ -42,7 +42,7 @@ function showWeather(response) {
     response.data.wind.speed
   );
   document
-    .querySelector("#current-weather-icon")
+    .querySelector("#icon")
     .setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

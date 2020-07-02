@@ -1,5 +1,5 @@
 body {
-  width: max400px;
+  width: max 500px;
   margin: 0auto;
   font-family: "Julius Sans One", sans-serif;
   text-shadow: 3px 3px 4px #253541;
@@ -35,9 +35,13 @@ main li {
   font-size: 15px;
 }
 img {
-  max-width: 30px;
   border-radius: 180px;
   box-shadow: 3px 3px 4px #253541;
+}
+
+.big-icn {
+  max-width: 60px;
+  margin-top: 10px;
 }
 
 .btnme {
@@ -85,6 +89,10 @@ img {
 .icn {
   border-radius: 180px;
   background-color: #d0e7e9;
+}
+
+.lil-icn {
+  max-width: 30px;
 }
 
 .reference {

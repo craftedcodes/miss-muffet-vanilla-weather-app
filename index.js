@@ -106,7 +106,7 @@ function showForecast(response) {
   console.log(forecast);
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `<div class="col-2 card">
+    forecastElement.innerHTML += `<div class="col-2 card text-center">
               <li class="mb-1">
                 ${formatForecastDate(forecast.dt * 1000)}
               </li>

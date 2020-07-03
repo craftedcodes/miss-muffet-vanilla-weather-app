@@ -27,6 +27,20 @@ if (minutes < 10) {
 console.log(now.getMinutes);
 time.innerHTML = `${hours}:${minutes}`;
 
+function formatForecastDate(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 ///weather current location///
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
@@ -53,8 +67,11 @@ function showWeather(response) {
 ///API///
 function searchCity(city) {
   let apiKey = "1f29a8457a11c97a01e380819aae6d53";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showWeather);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function handleSubmit(event) {
@@ -70,8 +87,8 @@ function showPosition(position) {
   let apiKey = "1f29a8457a11c97a01e380819aae6d53";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showWeather);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
 }
 
 function getCurrentPosition() {
@@ -81,6 +98,32 @@ function getCurrentPosition() {
 let button = document.querySelector("#geolocation");
 button.addEventListener("click", getCurrentPosition);
 searchCity("Berlin");
+
+function showForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  console.log(forecast);
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="col-2 card">
+              <li class="mb-1">
+                ${formatForecastDate(forecast.dt * 1000)}
+              </li>
+              <li>
+                <img src="http://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png"
+                  class="lil-icn mb-1">
+              </li>
+              <li>
+               <strong>${Math.round(
+                 forecast.main.temp_max
+               )}°</strong> ${Math.round(forecast.main.temp_min)}°
+              </li>
+            </div>`;
+  }
+}
 
 ///Celsius Fahrenheit///
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
